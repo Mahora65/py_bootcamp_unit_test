@@ -1,5 +1,5 @@
 import unittest
-from assignment_1 import *
+from tmp.assignment_1 import *
 
 
 class TestAssignment1(unittest.TestCase):
