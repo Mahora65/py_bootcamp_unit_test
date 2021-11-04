@@ -1,4 +1,5 @@
 import unittest
+from tmp.assignment_2 import *
 
 class TestAssignment2(unittest.TestCase):
     
@@ -34,10 +35,10 @@ class TestAssignment2(unittest.TestCase):
         self.assertEqual(exercise_09(), 35.7)
     
     def test_exercises_10(self):
-        self.assertEqual(excercise_10(), 242.0)
+        self.assertEqual(exercise_10(), 242.0)
     
     def test_exercises_11(self):
-        self.assertEqual(excercise_11(), 165.0)
+        self.assertEqual(exercise_11(), 165.0)
     
     def test_exercises_12(self):
         self.assertEqual(exercise_12(), 260.1)

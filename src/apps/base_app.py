@@ -2,14 +2,16 @@ import streamlit as st
 from util.file_manager import save_file
 from util.unit_test_manager import call_unit_test
 from importlib import import_module
+from shutil import copyfile
 
 
 class BaseApp():
-    def __init__(self, assignment_number) -> None:
+    def __init__(self, assignment_number, database=None) -> None:
         self.assignment_number = assignment_number
         self.title = f"Assignment {self.assignment_number}"
         self.test_name = f"test.test_assignment_{assignment_number}"
         self.test_class_name = f"TestAssignment{self.assignment_number}"
+        self.database= database
 
     def write_headers(self):
         st.title(self.title)
@@ -54,7 +56,11 @@ class BaseApp():
             else:
                 st.success('The assignment pass the unittest')
 
+    def load_databases(self):
+        copyfile(f"db/{self.database}", self.database)
+
     def run_app(self):
+        if self.database: self.load_databases()
         self.import_test()
         self.write_headers()
         self.write_file_uploader(self.assignment_number)
