@@ -16,12 +16,12 @@ class BaseApp():
         st.write(f"{self.title} results checker")
 
     @staticmethod
-    def write_file_uploader():
+    def write_file_uploader(assignment_number):
         uploaded_file = st.file_uploader("upload your code here", type=['py'])
         if uploaded_file is not None:
             file_details = {"FileName": uploaded_file.name, "FileType": uploaded_file.type,
                             "FileSize": uploaded_file.size}
-            save_file(uploaded_file, 'tmp/assignment_0.py')
+            save_file(uploaded_file, f'tmp/assignment_{assignment_number}.py')
             st.success(
                 f"Successfully uploaded {file_details['FileName']}. Type: {file_details['FileType']}"
                 f". Size: {file_details['FileSize']}.")
@@ -57,5 +57,5 @@ class BaseApp():
     def run_app(self):
         self.import_test()
         self.write_headers()
-        self.write_file_uploader()
+        self.write_file_uploader(self.assignment_number)
         self.check_assignment()
