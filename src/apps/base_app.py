@@ -60,7 +60,7 @@ class BaseApp():
         copyfile(f"db/{self.database}", self.database)
 
     def run_app(self):
-        if self.database: self.load_databases()
+        if self.database is not None: self.load_databases()
         self.import_test()
         self.write_headers()
         self.write_file_uploader(self.assignment_number)
