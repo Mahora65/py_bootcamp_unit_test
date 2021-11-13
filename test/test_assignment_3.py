@@ -82,7 +82,7 @@ class TestAssignment3(unittest.TestCase):
     
     def test_exercise_20(self):
         self.assertIsInstance(exercise_20(), int, "This exercise should return integer")
-        self.assertEqual(exercise_20(), 29, "This exercise should return 29")
+        self.assertEqual(exercise_20(), 253, "This exercise should return 29")
     
     def test_exercise_21(self):
         self.assertIsInstance(exercise_21(), str, "This exercise should return string")
